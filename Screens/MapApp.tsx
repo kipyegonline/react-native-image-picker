@@ -32,7 +32,7 @@ export default function MapApp({ navigation }: Props) {
   return (
     <View style={styles.mapContainer}>
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-        <Text style={{ color: "white" }}>Home </Text>
+        <Text style={{ color: "white" }}>Home| Welcome </Text>
       </TouchableOpacity>
       {location ? (
         <AppMapView

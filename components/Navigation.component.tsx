@@ -4,7 +4,12 @@ import React from "react";
 import Home from "../Screens/Home";
 import { View, StyleSheet, Button } from "react-native";
 import MapApp from "../Screens/MapApp";
-export type RootStackNavigatorProps = { Home: undefined; Map: undefined };
+import CarouselComponent from "./Carousel.component";
+export type RootStackNavigatorProps = {
+  Home: undefined;
+  Map: undefined;
+  Carousel: undefined;
+};
 
 const Stack = createNativeStackNavigator<RootStackNavigatorProps>();
 
@@ -16,7 +21,7 @@ export default function Navigationcomponent() {
           name="Home"
           component={Home}
           // options={{ headerShown: false }}
-          options={{ title: "Welcome" }}
+          options={{ title: "Welcome to Bird's paradise" }}
         />
         <Stack.Screen
           name="Map"
@@ -25,6 +30,7 @@ export default function Navigationcomponent() {
             headerRight: () => <Button title="Open" />,
           })}
         />
+        <Stack.Screen name="Carousel" component={CarouselComponent} />
       </Stack.Navigator>
     </NavigationContainer>
   );
