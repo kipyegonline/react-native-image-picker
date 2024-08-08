@@ -27,7 +27,7 @@ export default function Navigationcomponent() {
           name="Map"
           component={MapApp}
           options={({ route }) => ({
-            headerRight: () => <Button title="Open" />,
+            headerRight: () => <Button title="Login" />,
           })}
         />
         <Stack.Screen name="Carousel" component={CarouselComponent} />

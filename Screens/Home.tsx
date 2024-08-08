@@ -66,13 +66,11 @@ export default function Home({ navigation }: Props) {
             borderRadius: 10,
           }}
         >
-          <Text style={{ color: "white", fontWeight: "600" }}>
-            See carousel
-          </Text>
+          <Text style={{ color: "white", fontWeight: "600" }}>See</Text>
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={{ padding: 10, flex: 1 }}>
+      <ScrollView style={{ padding: 10, flex: 1, marginTop: 15 }}>
         <View style={styles.cardContainer}>
           {[...Array(20)].map((item, i) => (
             <CardComponent key={i}>

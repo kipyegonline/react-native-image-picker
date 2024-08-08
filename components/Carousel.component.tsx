@@ -19,6 +19,7 @@ export default function CarouselComponent() {
         loop
         width={width}
         height={600}
+        autoPlay
         data={[...Array(10).keys()]}
         renderItem={({ index }) => (
           <View
@@ -30,8 +31,8 @@ export default function CarouselComponent() {
             }}
           >
             <Image
-              source={require("../assets/press_card_24.png")}
-              resizeMode="contain"
+              source={require("../assets/Screenshot from 2024-08-06 20-15-15.png")}
+              // resizeMode="center"
               height={400}
             />
           </View>

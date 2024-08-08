@@ -11,9 +11,11 @@ import MapView from "react-native-maps";
 import * as Location from "expo-location";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackNavigatorProps } from "../components/Navigation.component";
+type Coords = Record<string, number>;
 type Props = NativeStackScreenProps<RootStackNavigatorProps, "Map">;
 export default function MapApp({ navigation }: Props) {
-  const [location, setLocation] = React.useState<null | Object>(null);
+  const [location, setLocation] =
+    React.useState<null | Location.LocationObject>(null);
   const getLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -22,7 +24,7 @@ export default function MapApp({ navigation }: Props) {
     }
 
     let location = await Location.getCurrentPositionAsync({});
-    setLocation(location);
+    if (location) setLocation(location);
   };
 
   React.useEffect(() => {
