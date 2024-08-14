@@ -1,8 +1,16 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, ImageProps } from "react-native";
 import React from "react";
 import AppText from "./AppText";
 
-export default function ListItem({ image, title = "", sub = "" }) {
+export default function ListItem({
+  image,
+  title = "",
+  sub = "",
+}: {
+  image: ImageProps;
+  title: string;
+  sub: string;
+}) {
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.image} />

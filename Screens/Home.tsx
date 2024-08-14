@@ -71,35 +71,33 @@ export default function Home({ navigation }: Props) {
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={{ padding: 10, flex: 1, marginTop: 15 }}>
-        <View style={styles.cardContainer}>
-          {[...Array(20)].map((item, i) => (
-            <CardComponent key={i}>
-              <Image
-                style={{ width: "100%" }}
-                source={require("../assets/rural-landscape-with-green-agriculture-fields-vector-42867404.png")}
-              />
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontWeight: "500",
-                  paddingBottom: 10,
-                  textAlign: "center",
-                }}
-              >
-                This is card component
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Facilis explicabo beatae quo distinctio maxime provident
-                nesciunt esse nisi ducimus dolores?
-              </Text>
-              <View style={{ alignItems: "center", marginVertical: 10 }}>
-                <Feather name="check-circle" color="green" size={32} />
-              </View>
-            </CardComponent>
-          ))}
-        </View>
+      <ScrollView style={{ padding: 10, marginVertical: 15 }}>
+        {[...Array(20)].map((item, i) => (
+          <CardComponent key={i}>
+            <Image
+              style={{ width: "100%", height: 150, overflow: "hidden" }}
+              source={require("../assets/rural-landscape-with-green-agriculture-fields-vector-42867404.jpg")}
+            />
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "500",
+                paddingBottom: 10,
+                textAlign: "center",
+              }}
+            >
+              This is card component
+            </Text>
+            <Text>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis
+              explicabo beatae quo distinctio maxime provident nesciunt esse
+              nisi ducimus dolores?
+            </Text>
+            <View style={{ alignItems: "center", marginVertical: 10 }}>
+              <Feather name="check-circle" color="green" size={32} />
+            </View>
+          </CardComponent>
+        ))}
       </ScrollView>
     </ImageBackground>
   );
