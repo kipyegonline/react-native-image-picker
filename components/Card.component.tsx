@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     width: "100%", //(width * 3) / 4,
     height: 200,
     elevation: 10,
-    borderRadius: 8,
+    borderRadius: 15,
   },
 });

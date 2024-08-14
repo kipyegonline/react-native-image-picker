@@ -6,6 +6,7 @@ import {
   ImageBackground,
   ScrollView,
   Button,
+  Image,
 } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
@@ -74,10 +75,14 @@ export default function Home({ navigation }: Props) {
         <View style={styles.cardContainer}>
           {[...Array(20)].map((item, i) => (
             <CardComponent key={i}>
+              <Image
+                style={{ width: "100%" }}
+                source={require("../assets/rural-landscape-with-green-agriculture-fields-vector-42867404.png")}
+              />
               <Text
                 style={{
                   fontSize: 18,
-                  fontWeight: "600",
+                  fontWeight: "500",
                   paddingBottom: 10,
                   textAlign: "center",
                 }}
