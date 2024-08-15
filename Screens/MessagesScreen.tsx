@@ -14,7 +14,7 @@ export default function MessagesScreen() {
     <Layout>
       <FlatList
         data={[]}
-        keyExtractor={({ item }: { item: Item }) => item?.title}
+        keyExtractor={(item: Item) => item?.title}
         renderItem={({ item, index }: { item: Item; index: number }) => (
           <ListItem
             {...item}

@@ -10,9 +10,9 @@ export type Item = {
 };
 type ListItemProps = {
   onPress: () => void;
-  renderRightActions: () => JSX.Element;
+  renderRightActions: () => JSX.Element | null;
   ImageComponent?: React.ReactNode;
-} & Item;
+};
 export default function ListItem({
   image,
   title = "",
@@ -20,7 +20,7 @@ export default function ListItem({
   ImageComponent,
   onPress,
   renderRightActions,
-}: ListItemProps) {
+}: ListItemProps & Item) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress} underlayColor={"#ccc"}>
