@@ -1,8 +1,8 @@
 import { View, Text, TextInput, StyleSheet, Switch } from "react-native";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, ComponentProps } from "react";
 
-type Props = PropsWithChildren & { label: string };
-export default function TextInputComponent(props: Props) {
+type Props = { label: string };
+export function TextInputComponent(props: Props) {
   return (
     <View style={styles.container}>
       <Text>{props.label}</Text>
@@ -22,9 +22,6 @@ const styles = StyleSheet.create({
   textInput: { fontSize: 18, fontFamily: "" },
 });
 
-export const AppSwitch = ({
-  value = false,
-  setValue = (val: boolean) => {},
-}) => {
+export const AppSwitch = ({ value = false, setValue = () => {} }) => {
   return <Switch value={value} onValueChange={setValue} />;
 };

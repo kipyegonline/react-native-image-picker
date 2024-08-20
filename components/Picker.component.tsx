@@ -8,16 +8,18 @@ import {
   ToastAndroid,
 } from "react-native";
 import React, { PropsWithChildren } from "react";
-import Picker from "@react-native-picker/picker";
+import { Picker } from "@react-native-picker/picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 type Item = { id: number; name: string; text: string };
-type Props = PropsWithChildren & { items: Item[] };
+interface Props {
+  items: Item[];
+} //extends PropsWithChildren
 
-export default function PickerComponent(props: Props) {
+export function PickerComponent<T extends Props>(props: T) {
   return (
     <View>
-      <Picker>
+      <Picker {...props}>
         {props.items.map((item) => (
           <Picker.Item key={item.id} value={item.name} label={item.text} />
         ))}
@@ -52,6 +54,9 @@ type AlertProps = {
   buttons: { text: string; onPress: () => void }[];
   visible: boolean;
 };
+
+type MProps = Omit<AlertProps, "buttons">;
+
 /*I like this custom alert component*/
 export function ConfirmationAlert({
   title = "",
@@ -70,7 +75,7 @@ type NotificationProps = {
   message: string;
   duration?: number;
 };
-export function Notification({
+export function NotificationAlert({
   message,
   duration = ToastAndroid.LONG,
 }: NotificationProps) {
@@ -85,3 +90,27 @@ const styles = StyleSheet.create({
   container: { width: "100%", flexDirection: "row" },
   text: { fontWeight: "500" },
 });
+
+type Genericprops<ZItem> = {
+  items: ZItem[];
+  id: keyof ZItem;
+  name: keyof ZItem;
+};
+
+function Renderitems<ZItem>(props: Genericprops<ZItem>) {
+  return (
+    <ul>
+      {props.items.map((item) => {
+        const idValue = item[props.id] as unknown;
+        const nameValue = item[props.name];
+        if (typeof idValue !== "number") return;
+        if (typeof nameValue !== "boolean") {
+          return;
+        }
+
+        return <li key={idValue}>{nameValue}</li>;
+      })}
+    </ul>
+  );
+}
+let name!: string;

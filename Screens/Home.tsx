@@ -14,6 +14,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackNavigatorProps } from "../components/Navigation.component";
 import CardComponent from "../components/Card.component";
 import CarouselComponent from "../components/Carousel.component";
+import AppButtoncomponent from "../components/AppButton.component";
 type Props = NativeStackScreenProps<RootStackNavigatorProps>;
 export default function Home({ navigation }: Props) {
   return (
@@ -37,6 +38,17 @@ export default function Home({ navigation }: Props) {
         <View style={{ marginVertical: 10 }}>
           <Feather name="check-circle" color="cyan" size={32} />
         </View>
+      </View>
+      <View style={styles.cta}>
+        <AppButtoncomponent
+          title="Sign Up"
+          onPress={() => navigation.navigate("Listing")}
+        />
+        <AppButtoncomponent
+          title="Login"
+          onPress={() => navigation.navigate("Login")}
+          style={styles.loginBtn}
+        />
       </View>
       <View style={{ alignItems: "center", gap: 5 }}>
         <TouchableOpacity
@@ -67,7 +79,7 @@ export default function Home({ navigation }: Props) {
             borderRadius: 10,
           }}
         >
-          <Text style={{ color: "white", fontWeight: "600" }}>See</Text>
+          <Text style={{ color: "white", fontWeight: "600" }}>Images</Text>
         </TouchableOpacity>
       </View>
 
@@ -120,4 +132,15 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,.4)",
   },
   cardContainer: { gap: 5, padding: 20, width: "100%", marginTop: 50 },
+  cta: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+  },
+  loginBtn: {
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "goldenrod",
+  },
 });
