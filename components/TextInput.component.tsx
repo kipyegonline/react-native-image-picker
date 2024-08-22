@@ -1,12 +1,13 @@
 import { View, Text, TextInput, StyleSheet, Switch } from "react-native";
 import React, { PropsWithChildren, ComponentProps } from "react";
 
-type Props = { label: string };
+type Props = { label: string; width: string | number };
 export function TextInputComponent(props: Props) {
+  const width = props.width;
   return (
     <View style={styles.container}>
       <Text>{props.label}</Text>
-      <TextInput {...props} style={styles.textInput} />
+      <TextInput {...props} style={[styles.textInput]} />
     </View>
   );
 }
@@ -16,7 +17,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     flexDirection: "row",
     width: "100%",
-    padding: 15,
+    padding: 10,
+    paddingHorizontal: 25,
     marginVertical: 10,
   },
   textInput: { fontSize: 18, fontFamily: "" },

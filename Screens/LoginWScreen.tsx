@@ -19,10 +19,7 @@ export default function LoginScreen() {
   const handleLogin = () => {};
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/vlcsnap-2019-11-25-23h00m07s607.png")}
-        style={styles.logo}
-      />
+      <Image source={require("../assets/monkey.png")} style={styles.logo} />
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {}}
@@ -33,6 +30,7 @@ export default function LoginScreen() {
             <>
               <TextInputComponent
                 autoCorrect={false}
+                name="email"
                 keyboardType="email-address"
                 placeholder="Enter email address"
                 textContentType="emailAddress"
@@ -44,12 +42,14 @@ export default function LoginScreen() {
                 autoCapitalize="none"
                 autoCorrect={false}
                 secureTextEntry
+                name="password"
+                placeholder="Enter password"
                 textContentType="password"
                 onBlur={() => setFieldTouched("password")}
                 onChangeText={handleChange("password")}
               />
               {touched.password && <ErrorMessage error={errors.password} />}
-              <SubmitButton />
+              <AppSubmitButton />
             </>
           );
         }}
@@ -58,12 +58,13 @@ export default function LoginScreen() {
   );
 }
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingTop: 15 },
+  container: { flex: 1, paddingTop: 15, paddingHorizontal: 20 },
   logo: {
     width: 80,
     height: 80,
     alignSelf: "center",
     marginTop: 50,
     marginBottom: 20,
+    borderRadius: 5,
   },
 });

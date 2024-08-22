@@ -81,6 +81,19 @@ export default function Home({ navigation }: Props) {
         >
           <Text style={{ color: "white", fontWeight: "600" }}>Images</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Account")}
+          style={{
+            alignItems: "center",
+            padding: 8,
+            borderWidth: 1,
+            borderColor: "skyblue",
+            width: "80%",
+            borderRadius: 10,
+          }}
+        >
+          <Text style={{ color: "white", fontWeight: "600" }}>My account</Text>
+        </TouchableOpacity>
       </View>
 
       <ScrollView style={{ padding: 10, marginVertical: 15 }}>
@@ -116,7 +129,7 @@ export default function Home({ navigation }: Props) {
 }
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
+    flex: 1,
     padding: 10,
     justifyContent: "center",
     alignItems: "center",

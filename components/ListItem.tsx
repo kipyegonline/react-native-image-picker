@@ -1,8 +1,16 @@
-import { View, Text, StyleSheet, Image, ImageProps } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ImageProps,
+  TouchableHighlight,
+} from "react-native";
 import React from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Swipeable } from "react-native-gesture-handler";
 import AppText from "./AppText";
-import { TouchableHighlight } from "react-native-gesture-handler";
+
 export type Item = {
   image: ImageProps;
   title: string;
@@ -28,8 +36,17 @@ export default function ListItem({
           {ImageComponent}
           {image && <Image source={image} style={styles.image} />}
           <View style={styles.details}>
-            <AppText styles={styles.title}>{title}</AppText>
-            <AppText styles={styles.sub}>{sub}</AppText>
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={25}
+              color="#ccc"
+            />
+            <AppText styles={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
+            <AppText styles={styles.sub} numberOfLines={2}>
+              {sub}
+            </AppText>
           </View>
         </View>
       </TouchableHighlight>
@@ -37,9 +54,14 @@ export default function ListItem({
   );
 }
 const styles = StyleSheet.create({
-  container: { flexDirection: "row" },
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+
+    //backgroundColor: "red",
+  },
   image: { width: 70, height: 70, borderRadius: 35 },
-  details: { marginLeft: 10 },
+  details: { marginLeft: 10, flex: 1 },
   title: { fontSize: 18, fontWeight: "500" },
   sub: { fontSize: 14, fontWeight: "400" },
 });
