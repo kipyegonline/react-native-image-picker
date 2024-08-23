@@ -1,12 +1,18 @@
-import { View, Text, TextInput, StyleSheet, Switch } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Switch,
+  TextInputProps,
+} from "react-native";
 import React, { PropsWithChildren, ComponentProps } from "react";
 
-type Props = { label: string; width: string | number };
-export function TextInputComponent(props: Props) {
-  const width = props.width;
+type Props = { label: string; width?: string | number } & TextInputProps;
+export function TextInputComponent({ width, label, ...props }: Props) {
   return (
     <View style={styles.container}>
-      <Text>{props.label}</Text>
+      <Text>{label}</Text>
       <TextInput {...props} style={[styles.textInput]} />
     </View>
   );

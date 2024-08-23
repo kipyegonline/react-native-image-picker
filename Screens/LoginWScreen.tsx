@@ -29,20 +29,22 @@ export default function LoginScreen() {
           return (
             <>
               <TextInputComponent
-                autoCorrect={false}
-                name="email"
+                autoCorrect
+                //name="email"
                 keyboardType="email-address"
                 placeholder="Enter email address"
                 textContentType="emailAddress"
                 onChangeText={handleChange("email")}
                 onBlur={() => setFieldTouched("email")}
+                label="Enter email"
               />
               {touched.email && <ErrorMessage error={errors.email} />}
               <TextInputComponent
                 autoCapitalize="none"
                 autoCorrect={false}
                 secureTextEntry
-                name="password"
+                label="Enter password"
+                //name="password"
                 placeholder="Enter password"
                 textContentType="password"
                 onBlur={() => setFieldTouched("password")}

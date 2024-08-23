@@ -1,13 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Home from "../Screens/Home";
+import Home from "../../Screens/Home";
 import { View, StyleSheet, Button } from "react-native";
-import MapApp from "../Screens/MapApp";
-import CarouselComponent from "./Carousel.component";
-import LoginScreen from "../Screens/LoginWScreen";
-import ListingsScreen from "../Screens/ListingsScreen";
-import AccountScreen from "../Screens/AccountScreen";
+import MapApp from "../../Screens/MapApp";
+import CarouselComponent from "../Carousel.component";
+import LoginScreen from "../../Screens/LoginWScreen";
+import ListingsScreen from "../../Screens/ListingsScreen";
+import AccountScreen from "../../Screens/AccountScreen";
+import { myTheme } from "./navigationTheme";
+import TabNavigationScreen from "../../Screens/TabNavigation.screen";
 export type RootStackNavigatorProps = {
   Home: undefined;
   Map: undefined;
@@ -19,15 +21,18 @@ export type RootStackNavigatorProps = {
 
 const Stack = createNativeStackNavigator<RootStackNavigatorProps>();
 
+const headerStyle = { backgroundColor: "goldenrod" };
+const screenOptions = { headerStyle, headerTintColor: "#ccc" };
+
 export default function Navigationcomponent() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer theme={myTheme}>
+      <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
         <Stack.Screen
           name="Home"
           component={Home}
-          // options={{ headerShown: false }}
-          options={{ title: "Welcome to Bird's paradise" }}
+          options={{ headerShown: false }}
+          //options={{ title: "Welcome to Bird's paradise" }}
         />
         <Stack.Screen
           name="Map"
@@ -38,7 +43,7 @@ export default function Navigationcomponent() {
         />
         <Stack.Screen name="Carousel" component={CarouselComponent} />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Listing" component={ListingsScreen} />
+        <Stack.Screen name="Listing" component={TabNavigationScreen} />
         <Stack.Screen name="Account" component={AccountScreen} />
       </Stack.Navigator>
     </NavigationContainer>

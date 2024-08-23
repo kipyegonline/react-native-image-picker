@@ -11,10 +11,11 @@ import {
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackNavigatorProps } from "../components/Navigation.component";
+import { RootStackNavigatorProps } from "../components/navigation/Navigation.component";
 import CardComponent from "../components/Card.component";
 import CarouselComponent from "../components/Carousel.component";
 import AppButtoncomponent from "../components/AppButton.component";
+import ImagePickerComponent from "../components/ImagePicker.component";
 type Props = NativeStackScreenProps<RootStackNavigatorProps>;
 export default function Home({ navigation }: Props) {
   return (
@@ -42,7 +43,7 @@ export default function Home({ navigation }: Props) {
       <View style={styles.cta}>
         <AppButtoncomponent
           title="Sign Up"
-          onPress={() => navigation.navigate("Listing")}
+          onPress={() => navigation.navigate("Listing", { name: "vsitors" })}
         />
         <AppButtoncomponent
           title="Login"
@@ -94,6 +95,7 @@ export default function Home({ navigation }: Props) {
         >
           <Text style={{ color: "white", fontWeight: "600" }}>My account</Text>
         </TouchableOpacity>
+        <ImagePickerComponent />
       </View>
 
       <ScrollView style={{ padding: 10, marginVertical: 15 }}>
@@ -127,6 +129,7 @@ export default function Home({ navigation }: Props) {
     </ImageBackground>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
