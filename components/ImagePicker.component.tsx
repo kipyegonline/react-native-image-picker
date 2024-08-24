@@ -31,22 +31,21 @@ export default function ImagePickerComponent({
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={selectImage}>
-        <MaterialCommunityIcons name="camera" size={24} />
+        <MaterialCommunityIcons name="camera" size={40} color="purple" />
       </TouchableWithoutFeedback>
-
-      <Button title="Upload image" onPress={selectImage} color="purple" />
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    //flex: 1,
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    borderWidth: 1,
-    borderColor: "purple",
+    // height: 100,
     marginVertical: 20,
+    borderWidth: 1,
+    borderColor: "#bbb",
   },
   imageContainer: { marginTop: 20, width: "100%" },
   image: { height: 200, width: "100%" },

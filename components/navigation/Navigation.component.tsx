@@ -10,6 +10,7 @@ import ListingsScreen from "../../Screens/ListingsScreen";
 import AccountScreen from "../../Screens/AccountScreen";
 import { myTheme } from "./navigationTheme";
 import TabNavigationScreen from "../../Screens/TabNavigation.screen";
+import UserForm from "../UserForm";
 export type RootStackNavigatorProps = {
   Home: undefined;
   Map: undefined;
@@ -17,6 +18,7 @@ export type RootStackNavigatorProps = {
   Login: undefined;
   Account: undefined;
   Listing: undefined;
+  UserForm: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackNavigatorProps>();
@@ -45,6 +47,7 @@ export default function Navigationcomponent() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Listing" component={TabNavigationScreen} />
         <Stack.Screen name="Account" component={AccountScreen} />
+        <Stack.Screen name="UserForm" component={UserForm} />
       </Stack.Navigator>
     </NavigationContainer>
   );

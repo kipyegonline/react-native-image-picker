@@ -27,10 +27,23 @@ export default function LoginScreen() {
       >
         {({ handleChange, errors, setFieldTouched, touched }) => {
           return (
-            <>
+            <View
+              style={{ padding: 20, borderRadius: 10, backgroundColor: "#fff" }}
+            >
+              <Text
+                style={{
+                  color: "#aaa",
+                  marginVertical: 10,
+                  textAlign: "center",
+                  fontSize: 18,
+                }}
+              >
+                Login to continue
+              </Text>
               <TextInputComponent
                 autoCorrect
                 //name="email"
+                autoCapitalize="none"
                 keyboardType="email-address"
                 placeholder="Enter email address"
                 textContentType="emailAddress"
@@ -52,7 +65,7 @@ export default function LoginScreen() {
               />
               {touched.password && <ErrorMessage error={errors.password} />}
               <AppSubmitButton />
-            </>
+            </View>
           );
         }}
       </Formik>
@@ -60,7 +73,12 @@ export default function LoginScreen() {
   );
 }
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingTop: 15, paddingHorizontal: 20 },
+  container: {
+    flex: 1,
+    paddingTop: 15,
+    paddingHorizontal: 20,
+    backgroundColor: "#bbb",
+  },
   logo: {
     width: 80,
     height: 80,

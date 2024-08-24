@@ -21,17 +21,17 @@ export default function ImagePickerScreen() {
   const removeImage = (img: string) => {};
   return (
     <View style={styles.container}>
-      <View>
-        <ImagePickerComponent setImage={addImage} />
-      </View>
+      <ImagePickerComponent setImage={addImage} />
+
       <View style={styles.imageContainer}>
         {images.length > 0 && (
           <ImageCollection images={images} removeImage={removeImage} />
         )}
       </View>
+
       <ScrollView
         horizontal
-        style={{ flex: 0 }}
+        // style={{ flex: 0 }}
         ref={scroll}
         onContentSizeChange={() => scroll?.current?.scrollToEnd()}
       >
@@ -57,7 +57,19 @@ const ImageCollection = ({
   ));
 };
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
-  imageContainer: { flexDirection: "row", flexWrap: "wrap" },
-  image: { width: 200, height: 200 },
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  imageContainer: {
+    flex: 0,
+    gap: 5,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    width: "100%",
+    paddingHorizontal: 15,
+  },
+  image: { width: 150, height: 200, overflow: "hidden" },
 });

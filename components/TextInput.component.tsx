@@ -12,7 +12,6 @@ type Props = { label: string; width?: string | number } & TextInputProps;
 export function TextInputComponent({ width, label, ...props }: Props) {
   return (
     <View style={styles.container}>
-      <Text>{label}</Text>
       <TextInput {...props} style={[styles.textInput]} />
     </View>
   );
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ccc",
     borderRadius: 25,
-    flexDirection: "row",
+    //flexDirection: "row",
     width: "100%",
     padding: 10,
     paddingHorizontal: 25,

@@ -16,12 +16,13 @@ import CardComponent from "../components/Card.component";
 import CarouselComponent from "../components/Carousel.component";
 import AppButtoncomponent from "../components/AppButton.component";
 import ImagePickerComponent from "../components/ImagePicker.component";
+import ImagePickerScreen from "./ImagePickerScreen";
 type Props = NativeStackScreenProps<RootStackNavigatorProps>;
 export default function Home({ navigation }: Props) {
   return (
     <ImageBackground
       source={require("../assets/Screenshot from 2019-11-24 23-54-27.png")}
-      style={{ flex: 1 }}
+      style={{ flex: 1, paddingTop: 50 }}
       //resizeMode="cover"
     >
       <View style={styles.container}>
@@ -43,7 +44,7 @@ export default function Home({ navigation }: Props) {
       <View style={styles.cta}>
         <AppButtoncomponent
           title="Sign Up"
-          onPress={() => navigation.navigate("Listing", { name: "vsitors" })}
+          onPress={() => navigation.navigate("Listing")}
         />
         <AppButtoncomponent
           title="Login"
@@ -95,7 +96,21 @@ export default function Home({ navigation }: Props) {
         >
           <Text style={{ color: "white", fontWeight: "600" }}>My account</Text>
         </TouchableOpacity>
-        <ImagePickerComponent />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("UserForm")}
+          style={{
+            alignItems: "center",
+            padding: 8,
+            borderWidth: 1,
+            borderColor: "skyblue",
+            width: "80%",
+            borderRadius: 10,
+          }}
+        >
+          <Text style={{ color: "white", fontWeight: "600" }}>User form</Text>
+        </TouchableOpacity>
+
+        <ImagePickerScreen />
       </View>
 
       <ScrollView style={{ padding: 10, marginVertical: 15 }}>
@@ -132,11 +147,10 @@ export default function Home({ navigation }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
-
     textAlign: "center",
   },
   loremText: {
