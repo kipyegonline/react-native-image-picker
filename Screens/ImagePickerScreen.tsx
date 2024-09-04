@@ -32,8 +32,8 @@ export default function ImagePickerScreen() {
       <ScrollView
         horizontal
         // style={{ flex: 0 }}
-        ref={scroll}
-        onContentSizeChange={() => scroll?.current?.scrollToEnd()}
+        //ref={scroll}
+        // onContentSizeChange={() => scroll?.current?.scrollToEnd()}
       >
         {images.length > 0 && (
           <ImageCollection images={images} removeImage={removeImage} />
